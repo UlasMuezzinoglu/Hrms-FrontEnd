@@ -8,7 +8,7 @@ export default function Navi() {
             <Menu inverted fixed="top">
                 <Container>
                     <Menu.Item
-                        name='home'
+                        name='homee'
                     />
                     <Menu.Item
                         name='messages'
