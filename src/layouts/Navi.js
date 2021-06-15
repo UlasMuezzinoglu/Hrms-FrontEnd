@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { NavLink, useHistory } from 'react-router-dom'
 import { Button, Container, Icon, Menu } from 'semantic-ui-react'
+import SignedIn from './SignedIn'
+import SignedOut from './SignedOut'
 
 
 export default function Navi() {
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const history = useHistory()
+    function handleSignOut(params) {
+        setIsAuthenticated(false)
+        history.push("/")
+    }
+    function handleSignIn(params) {
+        setIsAuthenticated(true)
+    }
+
+
+
+
+
     return (
         <div>
             <Menu inverted fixed="top">
                 <Container>
                     <Menu.Item
-                        name='homee'
+                        name='home ' as={NavLink} to="/"
                     />
                     <Menu.Item
                         name='messages'
@@ -19,13 +37,9 @@ export default function Navi() {
 
 
 
-                        <Menu.Item>
-                            <Button.Group>
-                                <Button positive href="https://google.com"> Giriş Yap</Button>
-                                <Button.Or text=' ' />
-                                <Button positive>Üye Ol</Button>
-                            </Button.Group>
-                        </Menu.Item>
+                        {
+                            isAuthenticated?<SignedIn  signOut={handleSignOut}/>:<SignedOut signIn={handleSignIn} />
+                        }
                     </Menu.Menu>
 
 

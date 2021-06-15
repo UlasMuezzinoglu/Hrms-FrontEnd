@@ -73,7 +73,7 @@ export default function Sidebar() {
                 <Dropdown clearable placeholder="Ülke Seç" search selection options={ulkeler}  />
 
                 <Header as='h5'>Şehir</Header> 
-                <Dropdown clearable placeholder="Şehir Seç" search selection options={abc.cityName}  />
+                <Dropdown clearable placeholder="Şehir Seç" search selection options={sehirler}  />
             
                 <Divider ></Divider>
 
