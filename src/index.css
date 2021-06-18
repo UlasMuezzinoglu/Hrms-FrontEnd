@@ -21,3 +21,12 @@ h5{
   margin-block-start: auto !important;
 }
 
+.image.testImage>img{
+  max-height: 120px !important;
+  max-width: 300px !important;
+}
+.description.ilanIsterler{
+  padding-left: 3em;
+  padding-top: 1em;
+  text-align: left;
+}

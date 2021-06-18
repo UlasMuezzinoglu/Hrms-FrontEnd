@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { Container, Divider, Grid, Header } from 'semantic-ui-react'
 import JobAdvertisementDetail from '../pages/JobAdvertisementDetail'
 import JobAdvertisements from '../pages/JobAdvertisements'
+import Others from './Others'
 import Sidebar from './Sidebar'
 
 export default function Dashboard() {
@@ -20,10 +21,9 @@ export default function Dashboard() {
             <Grid className="test">
                 
                 <Grid.Row>
-                    <Grid.Column width={4}>
-                        <Sidebar />
-                    </Grid.Column>
-                    <Grid.Column width={12}>
+                    
+                    <Grid.Column width={16}>
+                    
                     <Route exact path="/" component={JobAdvertisements}></Route>
                     <Route exact path="/JobAdvertisements" component={JobAdvertisements}></Route>
                     <Route  path="/JobAdvertisements/:id" component={JobAdvertisementDetail}></Route>

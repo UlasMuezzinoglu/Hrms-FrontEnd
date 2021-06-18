@@ -61,3 +61,9 @@ h3.ui.header.cardIsAciklamasi{
 .ui.youtube.button{
   width: 60%;
 }
+img.ui.small.image.cardSirketPp{
+  height: 100px;
+}
+.fixleme{
+  position: fixed;
+}
