@@ -10,6 +10,9 @@ export default function JobAdvertisements() {
     const [abc, setAbc] = useState([])
 
     
+    const [isNull, setNull] = useState(true)
+
+    
 
 
 
@@ -19,6 +22,19 @@ export default function JobAdvertisements() {
         
     }, [])
 
+    useEffect(() => {
+        let isMounted = true;
+        if (abc.length <= 0) {
+            if (isMounted) setNull(true);
+
+        } else {
+            if (isMounted) setNull(false);
+
+        }
+        return () => {
+            isMounted = false
+        }
+    }, [])
     
     return (
         
@@ -32,9 +48,10 @@ export default function JobAdvertisements() {
                 </Grid.Column>
                 
                 <Grid.Column width={12}>
-                <Header as='h2'>İş İlanları</Header>
+                { isNull ? <Header as='h2'>İş İlanları</Header> : <Header as='h2'> İş İlanı Yok</Header> }
+                
             {
-                abc.map(advertisementt => (
+                abc.slice(0, 3).map(advertisementt => (
                     <Container id="test" key={advertisementt.id}>
                         <Grid>
                             <Grid.Row>
@@ -54,7 +71,7 @@ export default function JobAdvertisements() {
                                     <p><Icon name="map pin" />{advertisementt.city.cityName}</p>
                                     <p><Icon name="user" />{advertisementt.workShift.shiftName}</p>
 
-                                </GridColumn>
+                                </GridColumn> 
                             </Grid.Row>
                         </Grid>
                     </Container>

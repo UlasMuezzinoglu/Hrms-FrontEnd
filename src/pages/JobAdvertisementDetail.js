@@ -172,6 +172,7 @@ export default function JobAdvertisementDetail() {
                                         </List>
 
                                     </Card.Description>
+                                    
                                 </Card.Content>
 
                                 <Card.Content extra>
