@@ -1,15 +1,15 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Container, Divider, Grid, Header } from 'semantic-ui-react'
+import { Grid, Header } from 'semantic-ui-react'
 import JobAdvertisementDetail from '../pages/JobAdvertisementDetail'
 import JobAdvertisements from '../pages/JobAdvertisements'
-import Others from './Others'
-import Sidebar from './Sidebar'
+
+
 import KayitOlForm from './formikForms/KayitOlForm'
 import Empty from './Empty'
-import JobAdvertisementService from '../services/jobAdvertisementService'
-import { useEffect } from 'react'
-import { useState } from 'react'
+
+
+
 
 
 

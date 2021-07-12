@@ -10,9 +10,14 @@ export default function Others({ eid }) {
 
 
     useEffect(() => {
+
         const jobAdvertisementService = new JobAdvertisementService()
         jobAdvertisementService.getByEmpId(eid).then(result => setAdvert(result.data.data))
+
+
+
     }, [])
+
 
 
     return (

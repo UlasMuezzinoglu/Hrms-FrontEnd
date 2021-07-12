@@ -9,18 +9,33 @@ export default function JobAdvertisements() {
 
     const [abc, setAbc] = useState([])
 
-    
+
     const [isNull, setNull] = useState(true)
 
-    
+    const [isFull, setFull] = useState(false)
+
+
+
 
 
 
     useEffect(() => {
         let abc = new JobAdvertisementService()
         abc.getJobAdvertisements().then(result => setAbc(result.data.data))
-        
+
     }, [])
+
+    function Fulle() {
+        if (isFull) {
+            setFull(false)
+        } else {
+            setFull(true)
+        }
+
+
+    }
+
+
 
     useEffect(() => {
         let isMounted = true;
@@ -35,54 +50,96 @@ export default function JobAdvertisements() {
             isMounted = false
         }
     }, [])
-    
+
     return (
-        
+
         <div>
 
 
-        <Grid>
-            <Grid.Row>
-                <Grid.Column width={4}>
-                    <Sidebar />
-                </Grid.Column>
-                
-                <Grid.Column width={12}>
-                { isNull ? <Header as='h2'>İş İlanları</Header> : <Header as='h2'> İş İlanı Yok</Header> }
-                
-            {
-                abc.slice(0, 3).map(advertisementt => (
-                    <Container id="test" key={advertisementt.id}>
-                        <Grid>
-                            <Grid.Row>
-                                <GridColumn width={2}>
-                                    <Image className="cardSirketPp" src={advertisementt.employer?.photo} size='small' />
-                                </GridColumn>
-                                <GridColumn width={12}>
-                                    <Header as='h3' className="cardSirketAdiSitesi">
-                                        <Link to={`/JobAdvertisements/${advertisementt.id}`}>
-                                            {advertisementt.employer.companyName} <span>-</span> <span>{advertisementt.employer.webAddress}</span>
-                                        </Link>
-                                    </Header>
-                                    <Header as='h3' className="cardIsTanımı"> {advertisementt.jobTitle.jobTitle}</Header>
-                                    <Header as='h3' className="cardIsAciklamasi">{advertisementt.jobDescription}</Header>
-                                </GridColumn>
-                                <GridColumn width={2}>
-                                    <p><Icon name="map pin" />{advertisementt.city.cityName}</p>
-                                    <p><Icon name="user" />{advertisementt.workShift.shiftName}</p>
+            <Grid>
+                <Grid.Row>
+                    <Grid.Column width={4}>
+                        <Sidebar />
+                    </Grid.Column>
 
-                                </GridColumn> 
-                            </Grid.Row>
-                        </Grid>
-                    </Container>
-                ))
-            }
-            <Button color='youtube'>
-                {abc.length} İlanın Tümünü Görüntüle
-            </Button>
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+                    <Grid.Column width={12}>
+                        {isNull ? <Header as='h2'>İş İlanları</Header> : <Header as='h2'> İş İlanı Yok</Header>}
+
+                        {
+                            isFull ?
+                                abc.map(advertisementt => (
+                                    <Container id="test" key={advertisementt.id}>
+                                        <Grid>
+                                            <Grid.Row>
+                                                <GridColumn width={2}>
+                                                    <Image className="cardSirketPp" src={advertisementt.employer?.photo} size='small' />
+                                                </GridColumn>
+                                                <GridColumn width={12}>
+                                                    <Header as='h3' className="cardSirketAdiSitesi">
+                                                        <Link to={`/JobAdvertisements/${advertisementt.id}`}>
+                                                            {advertisementt.employer.companyName} <span>-</span> <span>{advertisementt.employer.webAddress}</span>
+                                                        </Link>
+                                                    </Header>
+                                                    <Header as='h3' className="cardIsTanımı"> {advertisementt.jobTitle.jobTitle}</Header>
+                                                    <Header as='h3' className="cardIsAciklamasi">{advertisementt.jobDescription}</Header>
+                                                </GridColumn>
+                                                <GridColumn width={2}>
+                                                    <p><Icon name="map pin" />{advertisementt.city.cityName}</p>
+                                                    <p><Icon name="user" />{advertisementt.workShift.shiftName}</p>
+
+                                                </GridColumn>
+                                            </Grid.Row>
+                                        </Grid>
+                                    </Container>
+
+                                ))
+
+                                : abc.slice(0, 3).map(advertisementt => (
+                                    <Container id="test" key={advertisementt.id}>
+                                        <Grid>
+                                            <Grid.Row>
+                                                <Grid.Column width={2}>
+                                                    <Image className="cardSirketPp" src={advertisementt.employer?.photo} size='small' />
+                                                </Grid.Column>
+                                                <Grid.Column width={12}>
+                                                    <Header as='h3' className="cardSirketAdiSitesi">
+                                                        <Link to={`/JobAdvertisements/${advertisementt.id}`}>
+                                                            {advertisementt.employer.companyName} <span>-</span> <span>{advertisementt.employer.webAddress}</span>
+                                                        </Link>
+                                                    </Header>
+                                                    <Header as='h3' className="cardIsTanımı"> {advertisementt.jobTitle.jobTitle}</Header>
+                                                    <Header as='h3' className="cardIsAciklamasi">{advertisementt.jobDescription}</Header>
+                                                </Grid.Column>
+                                                <GridColumn width={2}>
+                                                    <p><Icon name="map pin" />{advertisementt.city.cityName}</p>
+                                                    <p><Icon name="user" />{advertisementt.workShift.shiftName}</p>
+
+                                                </GridColumn>
+                                            </Grid.Row>
+                                        </Grid>
+                                    </Container>
+                                ))
+                        }
+
+
+                        {
+                            isFull ? <Button onClick={() => Fulle()} color='youtube'>
+                                <p>İlanları Daralt</p>
+
+
+                            </Button> : <Button onClick={() => Fulle()} color='youtube'>
+
+                                <p>{abc.length} İlanın Tümünü Görüntüle</p>
+
+                            </Button>
+                        }
+
+
+
+
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
 
 
 
@@ -100,7 +157,7 @@ export default function JobAdvertisements() {
 
 
 
-            
+
 
 
 
@@ -108,8 +165,8 @@ export default function JobAdvertisements() {
 
 
         </div>
-        
+
     )
-    
+
 }
 

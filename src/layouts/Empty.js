@@ -12,7 +12,7 @@ export default function Empty() {
                         <Sidebar />
                     </Grid.Column>
                     <Grid.Column width={4}>
-                        Burası Boş 
+                        <h3>Malesef Hiç Aktif İş ilanı yok </h3>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
