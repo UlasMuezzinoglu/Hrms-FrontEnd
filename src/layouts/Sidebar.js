@@ -43,7 +43,8 @@ export default function Sidebar() {
     const cityOption = cities.map((city, index) => ({
         key: index,
         text: city.cityName,
-        value: city.id,
+        value: city.id, 
+        
       }));
 
       const formik = useFormik({

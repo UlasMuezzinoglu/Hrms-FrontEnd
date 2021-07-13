@@ -9,50 +9,49 @@ import JobAdvertisementService from '../services/jobAdvertisementService'
 
 export default function JobAdvertisementDetail() {
 
+
+
+
+    
     let { id } = useParams()
 
-
+    
 
 
 
     const [jobAdvertisement, setJobAdvertisement] = useState({})
 
+
+    
+
+
+
     let a = `${jobAdvertisement.employer?.id}`
 
+    
 
-
-
-
-
+    
 
     useEffect(() => {
         let jobAdvertisementService = new JobAdvertisementService()
         jobAdvertisementService.getById(id).then(result => setJobAdvertisement(result.data.data))
+        
 
 
     }, [])
 
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
     const Others = React.lazy(() => import('../layouts/Others'));
 
 
     return (
 
+        
+        
 
         <div>
-
+            
             <Grid>
                 <Grid.Row>
                
@@ -70,7 +69,7 @@ export default function JobAdvertisementDetail() {
                                 <Card.Header>{jobAdvertisement.employer?.companyName}</Card.Header>
                                 <Card.Meta></Card.Meta>
                                 <Card.Description>
-                                    Firma Sektörü : (sektör)
+                                    
 
                                 </Card.Description>
                             </Card.Content>
@@ -96,54 +95,42 @@ export default function JobAdvertisementDetail() {
                                 <Card.Content>
 
                                     <Card.Header>Genel İş Tanımı ve Nitelikleri</Card.Header>
-
+                                                                  
                                     <Card.Description className="ilanIsterler">
-                                        <p>İstanbul Şişli Bölgesinde  açılacak olan beş yıldızlı otelimiz için  Kat Hizmetleri Departmanında  istihdam edilmek üzere aşağıdaki özellikleri taşıyan  adayların başvurularını bekliyoruz.
-                                            Hem kat hem de meydan tecrübesi olan adaylar bu ilana başvuruda bulunabilirler.</p>
-                                        <List bulleted>
-                                            <List.Item>Gaining Access</List.Item>
-                                            <List.Item>Inviting Friends</List.Item>
-                                            <List.Item>Benefits
-                                                <List.List>
-                                                    <List.Item href='#'>Link to somewhere</List.Item>
-                                                    <List.Item>Rebates</List.Item>
-                                                    <List.Item>Discounts</List.Item>
-                                                </List.List>
-                                            </List.Item>
-                                            <List.Item>Warranty</List.Item>
-                                        </List>
-
+                                            <p>{jobAdvertisement.fullDescription}</p>
                                     </Card.Description>
-                                </Card.Content>
-
-
-
-
-
-
-
-
-
-
+                                </Card.Content> 
                             </Card>
 
                             <Card fluid>
                                 <Card.Content>
                                     <Card.Header><Icon name="user"></Icon> Aday Kriterleri</Card.Header>
                                     <Card.Description className="ilanIsterler">
-                                        <p>askerlik bilgisi tecrübe bilgisi Eğitim Seviyesi Yabancı Dil isterleri vs. </p>
-                                        <List bulleted>
-                                            <List.Item>Gaining Access</List.Item>
-                                            <List.Item>Inviting Friends</List.Item>
-                                            <List.Item>Benefits
-                                                <List.List>
-                                                    <List.Item href='#'>Link to somewhere</List.Item>
-                                                    <List.Item>Rebates</List.Item>
-                                                    <List.Item>Discounts</List.Item>
-                                                </List.List>
-                                            </List.Item>
-                                            <List.Item>Warranty</List.Item>
-                                        </List>
+                                        <Grid>
+                                            <Grid.Row>
+                                                <Grid.Column width={5}>
+                                                <p><b>Tecrübe :</b></p>
+                                                </Grid.Column>
+                                                <Grid.Column width={11}>
+                                                <p><b>{jobAdvertisement.experience?.experienceTime}</b></p>
+                                                </Grid.Column>    
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <Grid.Column width={5}>
+                                                <p><b>Eğitim :</b></p>
+                                                </Grid.Column>
+                                                <Grid.Column width={11}>
+                                                 
+                                                 
+                                                     <p>ToDo -- Burayı dto ile çöz (array değil nesne geliyor ondan maplenmez )</p>
+                                                
+
+                                                    
+                                                 
+                                                </Grid.Column>    
+                                            </Grid.Row>
+                                        </Grid>
+                                        
 
                                     </Card.Description>
                                 </Card.Content>
@@ -156,20 +143,49 @@ export default function JobAdvertisementDetail() {
                                 <Card.Content>
                                     <Card.Header><Icon name="info circle"></Icon> Pozisyon Bilgileri</Card.Header>
                                     <Card.Description className="ilanIsterler">
-                                        <p>İstanbul Şişli Bölgesinde  açılacak olan beş yıldızlı otelimiz için  Kat Hizmetleri Departmanında  istihdam edilmek üzere aşağıdaki özellikleri taşıyan  adayların başvurularını bekliyoruz.
-                                            Hem kat hem de meydan tecrübesi olan adaylar bu ilana başvuruda bulunabilirler.</p>
-                                        <List bulleted>
-                                            <List.Item>Gaining Access</List.Item>
-                                            <List.Item>Inviting Friends</List.Item>
-                                            <List.Item>Benefits
-                                                <List.List>
-                                                    <List.Item href='#'>Link to somewhere</List.Item>
-                                                    <List.Item>Rebates</List.Item>
-                                                    <List.Item>Discounts</List.Item>
-                                                </List.List>
-                                            </List.Item>
-                                            <List.Item>Warranty</List.Item>
-                                        </List>
+                                    <Grid>
+                                            <Grid.Row>
+                                                <Grid.Column width={5}>
+                                                <p><b>Firma Sektörü :</b></p>
+                                                </Grid.Column>
+                                                <Grid.Column width={11}>
+                                                <p><b>{jobAdvertisement.employer?.sector}</b></p>
+                                                </Grid.Column>    
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <Grid.Column width={5}>
+                                                <p><b>Çalışma Şekli :</b></p>
+                                                </Grid.Column>
+                                                <Grid.Column width={11}>
+                                                {jobAdvertisement.workShift?.shiftName}
+                                                </Grid.Column>    
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <Grid.Column width={5}>
+                                                <p><b>Bu iş için kaç kişi alınacak :</b></p>
+                                                </Grid.Column>
+                                                <Grid.Column width={11}>
+                                                {jobAdvertisement.jobOfNumberPosition}
+                                                </Grid.Column>    
+                                            </Grid.Row>
+
+                                            <Grid.Row>
+                                                <Grid.Column width={5}>
+                                                <p><b>Maaş Skalası :</b></p>
+                                                </Grid.Column>
+                                                <Grid.Column width={11}>
+                                                <span>Minimum {jobAdvertisement.minSalary}  ₺</span> <span>Maksimum {jobAdvertisement.maxSalary} ₺</span>
+                                                </Grid.Column>    
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <Grid.Column width={5}>
+                                                <p><b>Şehir :</b></p>
+                                                </Grid.Column>
+                                                <Grid.Column width={11}>
+                                                {jobAdvertisement.city?.cityName}
+                                                </Grid.Column>    
+                                            </Grid.Row>
+                                        </Grid>
 
                                     </Card.Description>
                                     
@@ -178,10 +194,10 @@ export default function JobAdvertisementDetail() {
                                 <Card.Content extra>
                                     <div className="ui two buttons">
                                         <Button basic color="green">
-                                            Approve
+                                            Başvur
                                         </Button>
                                         <Button basic color="red">
-                                            Decline
+                                            Favorilere Ekle
                                         </Button>
                                     </div>
                                 </Card.Content>

@@ -29,7 +29,7 @@ export default function Others({ eid }) {
                     {
                         advert.map(adver => (
                             <Card key={adver.id}>
-                                <Card.Header style={{ fontWeight: 'bold' }}> <Link target="_blank"
+                                <Card.Header style={{ fontWeight: 'bold' }}> <Link target="_self"
                                     to={`/JobAdvertisements/${adver.id}`}> {adver.jobDescription}</Link></Card.Header>
                                 <Card.Meta><Icon name="location arrow"></Icon> {adver.city?.cityName} </Card.Meta>
                                 <Card.Description><Button color="red">Başvur </Button> </Card.Description>

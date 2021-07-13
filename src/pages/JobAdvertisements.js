@@ -15,6 +15,7 @@ export default function JobAdvertisements() {
     const [isFull, setFull] = useState(false)
 
 
+    
 
 
 
