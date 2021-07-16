@@ -5,8 +5,8 @@ import JobAdvertisementDetail from '../pages/JobAdvertisementDetail'
 import JobAdvertisements from '../pages/JobAdvertisements'
 
 
-import KayitOlForm from './formikForms/KayitOlForm'
 import Empty from './Empty'
+import RegisterCandidate from '../pages/RegisterCandidate'
 
 
 
@@ -43,7 +43,7 @@ export default function Dashboard() {
                     {/* <Route exact path="/"  component={JobAdvertisements}></Route> */}
                     <Route exact path="/JobAdvertisements" component={JobAdvertisements}></Route>
                     <Route  path="/JobAdvertisements/:id" component={JobAdvertisementDetail}></Route>
-                    <Route  path="/kayitol" component={KayitOlForm}></Route>
+                    <Route  path="/RegisterCandidate" component={RegisterCandidate}></Route>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

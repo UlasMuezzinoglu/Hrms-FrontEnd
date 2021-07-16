@@ -7,7 +7,7 @@ export default function SignedOut({signIn}) {
         <div>
             <Menu.Item>
                 <Button onClick={signIn} primary>Giriş Yap</Button>
-                <Button primary style={{marginLeft: "0.5em"}}><Link style={{color: "white"}} to="/kayitol">Kayıt Ol</Link></Button>
+                <Button primary style={{marginLeft: "0.5em"}}><Link style={{color: "white"}} to="/RegisterCandidate">Kayıt Ol</Link></Button>
             </Menu.Item>
         </div>
     )

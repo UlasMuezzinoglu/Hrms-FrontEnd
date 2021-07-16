@@ -4,6 +4,7 @@ import { Button, Card, Container, Grid, Header, Icon, Image, List } from 'semant
 import Others from '../layouts/Others'
 import { Suspense, lazy } from 'react';
 import JobAdvertisementService from '../services/jobAdvertisementService'
+import JobAdvertisements from './JobAdvertisements';
 
 
 
@@ -77,7 +78,8 @@ export default function JobAdvertisementDetail() {
                                 <Button basic color='violet' content="Firma Profiline Git"></Button>
                                 <a target="_blank" href={`https://google.com/search?q=${jobAdvertisement.employer?.companyName}`}>
                                     <Button basic color='violet' content="Google'la"></Button>
-                                </a>
+                                </a> 
+                                
 
                             </Card.Content>
 
@@ -122,8 +124,11 @@ export default function JobAdvertisementDetail() {
                                                 <Grid.Column width={11}>
                                                  
                                                  
-                                                     <p>ToDo -- Burayı dto ile çöz (array değil nesne geliyor ondan maplenmez )</p>
-                                                
+                                                    {
+                                                        jobAdvertisement.schoolGrades?.map(advertt =>(
+                                                            <span>{advertt.gradeName} </span>
+                                                        ))
+                                                    }                                    
 
                                                     
                                                  

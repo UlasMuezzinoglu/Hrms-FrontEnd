@@ -192,7 +192,7 @@ export default function Sidebar() {
 
                 </Grid>
                 <Slider  color="red" settings={maxSettings} />
-                <Divider ></Divider>
+                <br></br>
                 <Button size='huge'  primary>Filtrele</Button>
             </Container>
 
