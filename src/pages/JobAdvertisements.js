@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Container, Grid, GridColumn, Header, Icon, Image, Label, Menu, Table } from 'semantic-ui-react'
+import { Button, Container, Grid, GridColumn, Header, Icon, Image} from 'semantic-ui-react'
 import Sidebar from '../layouts/Sidebar'
 import JobAdvertisementService from '../services/jobAdvertisementService'
 

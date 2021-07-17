@@ -7,6 +7,8 @@ import JobAdvertisements from '../pages/JobAdvertisements'
 
 import Empty from './Empty'
 import RegisterCandidate from '../pages/RegisterCandidate'
+import RegisterEmployer from '../pages/RegisterEmployer'
+import Login from '../pages/Login'
 
 
 
@@ -44,6 +46,10 @@ export default function Dashboard() {
                     <Route exact path="/JobAdvertisements" component={JobAdvertisements}></Route>
                     <Route  path="/JobAdvertisements/:id" component={JobAdvertisementDetail}></Route>
                     <Route  path="/RegisterCandidate" component={RegisterCandidate}></Route>
+                    <Route  path="/RegisterEmployer" component={RegisterEmployer}></Route>
+                    <Route  path="/Login" component={Login}></Route>
+
+
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
