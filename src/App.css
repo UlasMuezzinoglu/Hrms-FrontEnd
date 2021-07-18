@@ -16,8 +16,14 @@
   
 }
 .ui.grid.test{
-  margin: 5em;
+ margin: 5em;
+  
 }
+.ui.grid.test2{
+  
+  margin-bottom: 2em;
+   
+ }
 .ui.container.filterContainer{
  width: 80%;
  padding-top: 1em;  
@@ -30,8 +36,16 @@ border-radius: 15px;
   padding-top: 1em;  
  padding-bottom: 1em; 
 border: 1px solid transparent;
-background-color: #fff;
+background-color: white;
 border-radius: 15px;
+margin-bottom: 1.5em;
+}
+#profileFirstContainer{
+  padding-top: 1em;  
+ padding-bottom: 1em; 
+border: 1px solid transparent;
+background-color: white;
+border-radius: 8px;
 margin-bottom: 1.5em;
 }
 h3.ui.header{
@@ -63,4 +77,9 @@ h3.ui.header.cardIsAciklamasi{
 }
 img.ui.small.image.cardSirketPp{
   height: 100px;
+}
+.ui.container.topSearch{
+  
+  width: 100%;
+
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Container, Grid, GridColumn, Header, Icon, Image} from 'semantic-ui-react'
 import Sidebar from '../layouts/Sidebar'
+import TopSearch from '../layouts/TopSearch'
 import JobAdvertisementService from '../services/jobAdvertisementService'
 
 
@@ -57,7 +58,9 @@ export default function JobAdvertisements() {
         <div>
 
 
-            <Grid>
+<TopSearch></TopSearch>
+
+            <Grid stackable>
                 <Grid.Row>
                     <Grid.Column width={4}>
                         <Sidebar />
@@ -70,14 +73,14 @@ export default function JobAdvertisements() {
                             isFull ?
                                 abc.map(advertisementt => (
                                     <Container id="test" key={advertisementt.id}>
-                                        <Grid>
+                                        <Grid stackable>
                                             <Grid.Row>
                                                 <GridColumn width={2}>
                                                     <Image className="cardSirketPp" src={advertisementt.employer?.photo} size='small' />
                                                 </GridColumn>
                                                 <GridColumn width={12}>
                                                     <Header as='h3' className="cardSirketAdiSitesi">
-                                                        <Link to={`/JobAdvertisements/${advertisementt.id}`}>
+                                                        <Link to={`/JobAdvertisement/${advertisementt.id}`}>
                                                             {advertisementt.employer.companyName} <span>-</span> <span>{advertisementt.employer.webAddress}</span>
                                                         </Link>
                                                     </Header>
@@ -85,7 +88,11 @@ export default function JobAdvertisements() {
                                                     <Header as='h3' className="cardIsAciklamasi">{advertisementt.jobDescription}</Header>
                                                 </GridColumn>
                                                 <GridColumn width={2}>
-                                                    <p><Icon name="map pin" />{advertisementt.city.cityName}</p>
+                                                <p><Icon name="map pin"/>{advertisementt.city.cityName}</p>
+                                                    
+                                                    
+
+
                                                     <p><Icon name="user" />{advertisementt.workShift.shiftName}</p>
 
                                                 </GridColumn>
@@ -97,7 +104,7 @@ export default function JobAdvertisements() {
 
                                 : abc.slice(0, 3).map(advertisementt => (
                                     <Container id="test" key={advertisementt.id}>
-                                        <Grid>
+                                        <Grid stackable>
                                             <Grid.Row>
                                                 <Grid.Column width={2}>
                                                     <Image className="cardSirketPp" src={advertisementt.employer?.photo} size='small' />

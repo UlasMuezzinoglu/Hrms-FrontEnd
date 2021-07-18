@@ -9,6 +9,12 @@ import Empty from './Empty'
 import RegisterCandidate from '../pages/RegisterCandidate'
 import RegisterEmployer from '../pages/RegisterEmployer'
 import Login from '../pages/Login'
+import Profile from '../pages/Profile'
+import Settings from '../pages/Settings'
+import PositionGuide from '../pages/PositionGuide'
+import CarrierGuide from '../pages/CarrierGuide'
+import EmployerProfile from '../pages/EmployerProfile'
+import TopSearch from './TopSearch'
 
 
 
@@ -25,15 +31,7 @@ export default function Dashboard() {
     
     return (
         <div>
-            <Grid className="test">
-                
-                <Grid.Row>
-                    
-                    <Grid.Column width={16}>
-                    <Header as='h2'>Burası full width gridcolumn. buraya div içinde Geniş Arama banner'ı gelicek</Header>
-                    </Grid.Column>
-                </Grid.Row>
-                </Grid>
+            
             <Grid className="test">
                 
                 <Grid.Row>
@@ -48,6 +46,12 @@ export default function Dashboard() {
                     <Route  path="/RegisterCandidate" component={RegisterCandidate}></Route>
                     <Route  path="/RegisterEmployer" component={RegisterEmployer}></Route>
                     <Route  path="/Login" component={Login}></Route>
+                    <Route  path="/Settings" component={Settings}></Route>
+                    <Route  path="/Profile/:id" component={Profile}></Route>
+                    <Route  path="/carrierGuide" component={CarrierGuide}></Route>
+                    <Route  path="/positionGuide" component={PositionGuide}></Route>
+                    <Route  path="/EmployerProfile" component={EmployerProfile}></Route>
+
 
 
                     </Grid.Column>

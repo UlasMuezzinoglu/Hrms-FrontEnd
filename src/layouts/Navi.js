@@ -26,10 +26,13 @@ export default function Navi() {
             <Menu inverted fixed="top">
                 <Container>
                     <Menu.Item
-                        name='home ' as={NavLink} to="/"
+                        name='Anasayfa ' as={NavLink} to="/"
                     />
                     <Menu.Item
-                        name='messages'
+                        name='Kariyer Rehberi' as={NavLink} to="/carrierGuide"
+                    />
+                    <Menu.Item
+                        name='Pozisyon Rehberi' as={NavLink} to="/positionGuide"
                     />
 
 

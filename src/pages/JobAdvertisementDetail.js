@@ -41,10 +41,10 @@ export default function JobAdvertisementDetail() {
 
     }, [])
 
-    
+
 
     const Others = React.lazy(() => import('../layouts/Others'));
-
+    
 
     return (
 
@@ -53,7 +53,7 @@ export default function JobAdvertisementDetail() {
 
         <div>
             
-            <Grid>
+            <Grid stackable>
                 <Grid.Row>
                
                     <Grid.Column width={4}>
@@ -79,7 +79,7 @@ export default function JobAdvertisementDetail() {
                                 <a target="_blank" href={`https://google.com/search?q=${jobAdvertisement.employer?.companyName}`}>
                                     <Button basic color='violet' content="Google'la"></Button>
                                 </a> 
-                                
+                                <Button basic color='violet' content="Firmayı Takip Et"></Button>
 
                             </Card.Content>
 
@@ -148,7 +148,7 @@ export default function JobAdvertisementDetail() {
                                 <Card.Content>
                                     <Card.Header><Icon name="info circle"></Icon> Pozisyon Bilgileri</Card.Header>
                                     <Card.Description className="ilanIsterler">
-                                    <Grid>
+                                    <Grid stackable>
                                             <Grid.Row>
                                                 <Grid.Column width={5}>
                                                 <p><b>Firma Sektörü :</b></p>
